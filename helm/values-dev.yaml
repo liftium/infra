@@ -1,0 +1,28 @@
+elevator:
+  replicaCount: 1
+  image:
+    tag: "elevator-latest"
+  env:
+    ASPNETCORE_ENVIRONMENT: "Development"
+    ConnectionStrings__DefaultConnection: "Host=liftium-postgresql;Database=liftium_dev;Username=postgres;Password=postgres"
+    RabbitMQ__HostName: "liftium-rabbitmq"
+
+dispatcher:
+  replicaCount: 1
+  image:
+    tag: "dispatcher-latest"
+  env:
+    ASPNETCORE_ENVIRONMENT: "Development"
+    ConnectionStrings__DefaultConnection: "Host=liftium-postgresql;Database=liftium_dev;Username=postgres;Password=postgres"
+    RabbitMQ__HostName: "liftium-rabbitmq"
+
+postgresql:
+  auth:
+    username: "postgres"
+    password: "postgres"
+    database: "liftium_dev"
+
+rabbitmq:
+  auth:
+    username: "guest"
+    password: "guest"

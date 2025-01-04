@@ -1,0 +1,15 @@
+elevator:
+  image:
+    tag: "elevator-0.0.1"
+  env:
+    ASPNETCORE_ENVIRONMENT: "Production"
+
+dispatcher:
+  image:
+    tag: "dispatcher-0.0.1"
+  env:
+    ASPNETCORE_ENVIRONMENT: "Production"
+
+postgresql:
+  auth:
+    database: "liftium_prod"

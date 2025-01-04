@@ -1,0 +1,8 @@
+image:
+  repository: "heruvimchick/liftium-services"
+  tag: "dispatcher-latest"
+  pullPolicy: IfNotPresent
+
+replicaCount: 1
+
+env: {}

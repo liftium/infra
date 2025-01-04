@@ -1,0 +1,15 @@
+elevator:
+  image:
+    tag: "elevator-stage"
+  env:
+    ASPNETCORE_ENVIRONMENT: "Staging"
+
+dispatcher:
+  image:
+    tag: "dispatcher-stage"
+  env:
+    ASPNETCORE_ENVIRONMENT: "Staging"
+
+postgresql:
+  auth:
+    database: "liftium_stage"

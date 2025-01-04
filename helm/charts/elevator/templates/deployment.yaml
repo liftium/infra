@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "elevator.fullname" . }}
+  labels:
+    app: {{ include "elevator.name" . }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "elevator.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "elevator.name" . }}
+    spec:
+      containers:
+        - name: elevator
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: 8080
+            - containerPort: 8081
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: {{ .Values.env.ASPNETCORE_ENVIRONMENT | quote }}
+            - name: ConnectionStrings__DefaultConnection
+              value: {{ .Values.env.ConnectionStrings__DefaultConnection | quote }}
+            - name: RabbitMQ__HostName
+              value: {{ .Values.env.RabbitMQ__HostName | quote }}

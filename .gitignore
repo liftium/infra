@@ -1,0 +1,64 @@
+# Build output
+bin/
+obj/
+out/
+
+# Rider IDE
+.idea/
+*.sln.iml
+*.sln.DotSettings*
+*.user
+*.userosscache
+*.suo
+
+# Visual Studio
+.vs/
+*.dbmdl
+*.sln.docstates
+*.ipch
+*.aps
+*.ncb
+*.opendb
+*.opensdf
+*.VC.db
+
+# Logs and temp files
+*.log
+*.tmp
+*.cache
+*.bak
+*.pidb
+
+# NuGet
+*.nupkg
+packages/
+project.lock.json
+project.assets.json
+
+# Testing and coverage
+TestResults/
+*.coverage
+*.coveragexml
+.coverage/
+*.trx
+
+# Deployment
+publish/
+*publishsettings
+*.pubxml
+*.azurePubxml
+
+# Other tools
+*.vscode/
+*.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+*.env*
+
+# Chart dependencies
+**/charts/*.tgz
+
+.history
+**/*.lock

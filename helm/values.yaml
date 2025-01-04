@@ -1,0 +1,60 @@
+# --- Elevator subchart ---
+elevator:
+  image:
+    repository: "heruvimchick/liftium-services"
+    tag: "elevator-latest"
+    pullPolicy: IfNotPresent
+
+  replicaCount: 1
+
+  env:
+    ASPNETCORE_ENVIRONMENT: "Production"
+    ConnectionStrings__DefaultConnection: "Host=liftium-postgresql;Database=liftium_db;Username=postgres;Password=postgres"
+    RabbitMQ__HostName: "liftium-rabbitmq"
+
+# --- Dispatcher subchart ---
+dispatcher:
+  image:
+    repository: "heruvimchick/liftium-services"
+    tag: "dispatcher-latest"
+    pullPolicy: IfNotPresent
+
+  replicaCount: 1
+
+  env:
+    ASPNETCORE_ENVIRONMENT: "Production"
+    ConnectionStrings__DefaultConnection: "Host=liftium-postgresql;Database=liftium_db;Username=postgres;Password=postgres"
+    RabbitMQ__HostName: "liftium-rabbitmq"
+
+# --- PostgreSQL (Bitnami) ---
+postgresql:
+  enabled: true
+  auth:
+    username: "postgres"
+    password: "postgres"
+    database: "liftium_db"
+  primary:
+    persistence:
+      enabled: true
+      size: 1Gi
+    resources:
+      requests:
+        memory: "64Mi"
+        cpu: "50m"
+      limits:
+        memory: "128Mi"
+        cpu: "100m"
+
+# --- RabbitMQ (Bitnami) ---
+rabbitmq:
+  enabled: true
+  auth:
+    username: "guest"
+    password: "guest"
+  resources:
+    requests:
+      memory: "128Mi"
+      cpu: "100m"
+    limits:
+      memory: "256Mi"
+      cpu: "200m"
