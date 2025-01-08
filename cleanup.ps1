@@ -50,8 +50,4 @@ foreach ($repo in $repos) {
 }
 
 helm repo update
-Remove-Item -Recurse -Force "$HOME\AppData\Local\helm" -ErrorAction SilentlyContinue
-Remove-Item -Recurse -Force "$HOME\AppData\Roaming\helm" -ErrorAction SilentlyContinue
-Remove-Item -Recurse -Force "$HOME\.config\helm" -ErrorAction SilentlyContinue
-
 Write-Host "Cleanup for environment '$env' completed successfully." -ForegroundColor Green
